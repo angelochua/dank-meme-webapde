@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="style-index.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>DANK</title>
+        
+        <style>
+        
+        
+        </style>
+    </head>
+     <!------ FOLLOW THIS  
+                <form id="editform" action="editfood" method="POST">
+                        <input id="editid" type="hidden" name ="id">
+                </form>
+    --->
+
+    <body>
+         <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form action="home" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>  
+                    
+                    <form action="search" method="post">
+                       <input type="text" id="search-box" placeholder="Search..." name="tags">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>   
+                    </form>
+                    
+                    <form id="form-li" action="login" method="post">
+                        <li><button type="submit" id="login-button"><a><strong>Login</strong></a></button></li>
+                    </form>
+                    
+                    <form id="form-li" action="signup" method="post">
+                        <button type="submit" id="signup-button"><a><strong>Sign Up</strong></a></button>
+                    </form>
+                    
+                </ul>
+            
+             </nav>
+             
+        </div> 
+        <br>
+        <div id ="sep"><p> space </p></div>
+        <br>
+        
+        <div id="content-container">
+           {{#each posts}}
+            <div class="post-container">
+                
+                <div class="icon"></div>
+                <div class="name"><span><a href="dom-user.html">{{username}}</a></span></div>
+                
+                 <div class="title-des">
+                    <span><h1>{{title}}</h1></span>
+                </div>
+                
+                <div class="description">
+                    <span><h4>{{description}}</h4></span>
+                </div>
+                
+                
+              
+                    <a href="meme2.html" target="_blank">
+                        <img src="meme1.jpeg" alt="meme-post-1">
+                    </a>
+               
+                <div class="tags">
+                    <span class="tag-cont">#sampletag1</span> <span class="space"> </span><span class="tag-cont"> #sampletag2</span>
+                </div>
+            
+            </div>
+            {{/each}}
+         </div> 
+        
+        
+    </body>
+
+
+</html>

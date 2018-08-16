@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="style-register.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <title>DANK | Register</title>
+    </head>
+    
+    <body>
+        
+        <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li"
+                          action="home" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+
+                    <form id="form-li" action="login" method="post">
+                        <li><button type="submit" id="login-button"><strong>Login</strong></button></li>
+                    </form>
+                </ul>
+
+
+            </nav>
+          </div>
+        
+        <p class="big"><strong>Register Now</strong></p>
+        <p class="small">Join us.</p>
+       
+        
+        <!-- REGISTER -->
+        <div id="form-container">
+            <form id="register-form" action="register" method="post">
+                <div class="form-group">
+
+                    <input type="text" name="username" placeholder="Username">
+                    
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+
+                    <textarea name="description" placeholder="Description..."></textarea>
+                </div>
+                
+                <div class="form-sub">
+                    <input class="button" type="submit" value="Sign Up">
+                </div>    
+            </form>
+        </div>
+        
+        
+    </body>
+</html>

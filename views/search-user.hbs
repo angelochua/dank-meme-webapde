@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style-user.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>DANK</title>
+    </head>
+    
+    <body>
+        <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                   <form id="form-li" action="home-user" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li" action="search-user" method="post">
+                        <input type="search" id="search-box" placeholder="Search..." name="tags">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                   
+                   
+                    <form id="form-li" action="profile" method="post">
+                    <li><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
+                    </form> 
+                    
+                     <form id="form-li" action="upload" method="post">
+                    <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
+                    </button></li>
+                    </form>    
+                    
+                </ul>
+            
+             </nav>
+             
+        </div> 
+        <br>
+        <div id ="sep"><p> space </p></div>
+        <br>
+        
+        <div class="user-profile-container">
+            <span>#{{tag}} </span>
+            <br><br>
+            
+        </div>
+        
+        <div id="content-container">
+            
+            <div class="post-container">
+                <div class="one">
+                    <a href="meme2-user.html" target="_blank">
+                        <img src="meme2.jpg" alt="meme-post-1">
+                    </a>
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        
+    </body>
+
+</html>

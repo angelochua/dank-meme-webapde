@@ -1,0 +1,64 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="style-index.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        
+        <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li"
+                          action="home-user" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li"
+                          action="search" method="post">
+                        <input type="search" id="search-box" placeholder="Search...">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                     <form id="form-li" action="home-user" method="post">
+                        <button type="submit" id="home-but"><a><strong><i class="fa fa-home"></i></strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li" action="profile" method="post">
+                        <li><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
+                    </form>    
+                </ul>
+
+
+            </nav>
+        </div>
+        <br><br><br>
+          <div id="upload-container">
+            <form action="add" method="post">
+           <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title"></div>
+           
+            <br>
+            
+            <div class="up-tags"><textarea name="description" id = "description" placeholder="description"></textarea></div>
+            <select name="status" id="meme-privacy">
+               <option value="public">public</option>
+               <option value="private">private</option>
+           </select>
+            
+            <input type="file" id = "image" accept="image/*"  required>    
+            
+            <div><input type="text" id = "tags" placeholder="Tags" name="tags"></div>  
+            
+            <div><input type="text" id = "sharedto" placeholder="Share to" name="sharedto"></div>    
+            
+            
+            <input id="submit-button" type = "submit" id = "submit">
+            </form>
+        </div>  
+    </body>
+</html>

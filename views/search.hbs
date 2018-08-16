@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style-user.css">
+        <title>DANK</title>
+    </head>
+    
+    <body>
+        <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li" action="home" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>  
+                    
+                    <form id="form-li" action="search" method="post">
+                       <input type="text" id="search-box" placeholder="Search..." name="tags">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>   
+                    </form>
+                    
+                    <form id="form-li" action="login" method="post">
+                        <li><button type="submit" id="login-button"><a><strong>Login</strong></a></button></li>
+                    </form>
+                    
+                    <form id="form-li" action="signup" method="post">
+                        <button type="submit" id="signup-button"><a><strong>Sign Up</strong></a></button>
+                    </form>
+                    
+                </ul>
+            
+             </nav>
+             
+        </div> 
+        <br>
+        <div id ="sep"><p> space </p></div>
+        <br>
+        
+        <div class="user-profile-container">
+            <span>#{{tag}}</span>
+            <br><br>
+            
+        </div>
+        
+        <div id="content-container">
+            
+            <div class="post-container">
+                <div class="one">
+                    <a href="meme2.html" target="_blank">
+                        <img src="meme2.jpg" alt="meme-post-1">
+                    </a>
+                </div>
+            
+                
+            </div>
+            
+        </div>
+        
+    </body>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="style-index.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        
+        <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li"
+                          action="home-user" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li"
+                          action="search" method="post">
+                        <input type="search" id="search-box" placeholder="Search...">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                     <form id="form-li" action="home-user" method="post">
+                        <button type="submit" id="home-button"><a><strong>HOME</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li" action="profile" method="post">
+                        <li><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
+                    </form>    
+                </ul>
+
+
+            </nav>
+        </div>
+        <br><br><br>
+          <div id="upload-container">
+            <form action="edit" method="post">
+                <input type ="hidden" value="{{post._id}}" name="id">
+                
+           <div class="up-group"><input type="text" id = "title" value="{{post.title}}" name="title"></div>
+           
+            <br>
+            
+            <div class="up-tags"><textarea name="description" id = "description" placeholder="{{post.description}}"></textarea></div>
+            
+           <select name="status" id="meme-privacy">
+               <option value="public">public</option>
+               <option value="private">private</option>
+           </select>
+            
+            
+            <input type = "submit" id = "submit">
+            </form>
+        </div>  
+    </body>
+</html>

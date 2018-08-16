@@ -1,0 +1,132 @@
+body {
+    background-color: lightgray;
+    font-family: sans-serif, serif, fantasy;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+#container-nav {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    float: right;
+}
+
+#navbar {
+    background-color: black;
+    color: wheat;
+    text-align: right;
+    margin-bottom: 15px;
+    height: 45px;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 7px;
+    list-style: none;
+}
+
+
+
+#navbar li {
+    display: inline;
+    padding-right: 15px;   
+}
+
+#form-li{
+    display: inline;
+    padding-right: 15px;   
+    overflow-x: hidden;
+}
+
+#home-button {
+    float: left;
+    margin-left: 110px;
+    font-size: 21px;
+    background-color: black;
+}
+
+#home-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#home-button a:hover{
+    text-decoration:none;
+    color: red;
+    border-color: red;
+}
+
+#login-button {
+    font-size: 16px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border-color: black;
+    
+}
+
+#login-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#signup-button {
+    font-size: 16px;
+    padding: 5px 14px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border-color: red;
+    margin-right: 105px;
+    
+}
+
+#signup-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#form-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 50px;
+}
+
+.form-group {
+    padding-bottom: 10px;
+}
+
+#login-form input[type ="text"], #login-form input[type ="password"]{
+    padding: 9px;
+    width: 40%;
+    border-radius: 12px;
+    border-style: ridge;
+    font-size: 18px;
+}
+
+.form-log {
+    margin-left: 60px;
+}
+
+#login-form input[type ="submit"] {
+    padding: 5px;
+    padding-left: 55px;
+    padding-right: 55px;
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+#searchSubmit{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+

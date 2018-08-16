@@ -1,0 +1,134 @@
+<html>
+    <head>
+         
+        <link rel="stylesheet" type="text/css" href="style-user.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <script src="jquery-3.3.1.js"></script>
+       <script>
+            
+            $(document).ready(function(){
+                //detect if user clicks on button.delete
+                $("button.delete").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#deleteid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#deleteform").submit()
+                })
+            
+           
+           //////edit
+           $("button.view").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#viewid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#viewform").submit()
+                })
+           
+           })
+            
+            
+           
+        </script>
+        
+        <title>DANK</title>
+    </head>
+    
+    <body>
+        
+          <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li"
+                          action="home-user" method="post">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li"
+                          action="search" method="post">
+                        <input type="search" id="search-box" placeholder="Search...">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                    <form id="form-li" action="upload" method="post">
+                    <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
+                    </button></li>
+                    </form>    
+                   
+                    <form id="form-li" action="logout" method="post">
+                    <li><button type="submit" id="profile-button"><strong><i class="fa fa-logout"></i> Logout</strong></button></li>
+                    </form>
+                </ul>
+
+
+            </nav>
+          </div>
+        
+        <br><br><br>
+        <div class="user-profile-container">
+            <span>Benedick Cumberbacht</span>
+            <br><br>
+            Description:
+            <br>
+            <p>Our daily lives are so mundane, we get taken over by what is immediately in front of us and we don't see beyond that.</p>
+            
+        </div>
+        
+        
+        
+        
+        <div id="content-container">
+                
+           {{#each posts}}
+            <form id="deleteform" action="delete" method="GET">
+                <input type="hidden" value="{{_id}}" name="id" id="deleteid">
+            </form>
+            
+            <form id="viewform" action="viewpost" method="GET">
+                <input type="hidden" value="{{_id}}" name="id" id="viewid">
+            </form>
+            
+            <div class="post-container">
+                
+                <div class="icon"></div>
+                <div class="name"><span><a>{{username}}</a></span></div>
+                
+                <div class="title-des">
+                    <span><h1>{{title}}</h1></span>
+                </div>
+                
+                <div class="description">
+                    <span><h4>{{description}}</h4></span>
+                </div>
+                
+                
+                    <img id="my_image" src="meme1.jpeg"/>
+                
+                
+                <div class="tags">
+                    <span class="tag-cont">#sampletag1</span> <span class="space"> </span><span class="tag-cont"> #sampletag2</span>
+                </div>
+                <button class="view" data-id="{{_id}}"><i class="fa fa-edit"></i> Edit</button>
+                
+                <button class="delete" data-id="{{_id}}"><i class="fa fa-trash"></i> Delete</button>
+                
+            </div>
+            
+            
+            
+            {{/each}}
+         </div> 
+        
+    </body>
+
+</html>
