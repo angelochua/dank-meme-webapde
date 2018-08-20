@@ -310,6 +310,7 @@ body {
 
 .tags-cont textarea{
     font-size: 20px;
+    width: 80%;
     border-radius: 8px;
     border-style: solid;
     border-width: thin;
@@ -404,14 +405,25 @@ li{
 }
 
 #submit-button{
-    margin-left: 300px;
-    margin-top: 15px;
+    padding: 5px;
+    padding-left: 55px;
+    padding-right: 55px;
     background-color: red;
     color: white;
-    border-radius: 3px;
-    border: 5px;
-    border-color: black;
-    font-size: 20px; 
+    border-radius: 12px;
+    font-size: 24px;
+    margin-left: 100x;
+}
+
+#submit-cont{
+    align-content: center;
+    padding-left: 50px;
+    margin-left: 200px;
+}
+
+#uplo{
+    color: black;
+    font-weight: bold;
 }
 
 /* modal */

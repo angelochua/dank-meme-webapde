@@ -40,16 +40,18 @@
         <br><br><br>
           <div id="upload-container">
             <form action="add" method="post" enctype="multipart/form-data">
-           <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title"></div>
+           <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title" required></div>
            
             
             
-            <div class="up-tags"><textarea name="description" id = "description" placeholder="description"></textarea></div>
+            <div class="up-tags"><textarea name="description" id = "description" placeholder="description" required></textarea></div>
             
-            <input type="file" name = "photo" id = "image" required>    
+            <span id="uplo">Upload: <input type="file" name = "photo" id = "image" required></span>    
             
+            <br><br>
             <div class="tags-cont"><textarea role="combobox" id = "tags" placeholder="Tags" name="tags"></textarea></div> 
                 
+            <br>    
             <select name="status" id="meme-privacy">
                <option value="public">public</option>
                <option value="private">private</option>
@@ -61,8 +63,10 @@
             
             <div><input type="text" id = "sharedto" placeholder="Share to" name="sharedto"></div>    
             
-            
+            <br>
+            <div id="submit-cont">    
             <input id="submit-button" type = "submit" id = "submit">
+            </div>    
             </form>
         </div>  
     </body>
