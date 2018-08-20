@@ -112,6 +112,8 @@ app.get("/delete", urlencoder, (req,res)=>{
     })
 })
 
+
+/*
 app.post("/add", urlencoder, (req, res)=>{
     console.log("post/ add")
     
@@ -140,6 +142,7 @@ app.post("/add", urlencoder, (req, res)=>{
     })
     //output -- success / fail
 })
+*/
 
 app.post("/login", urlencoder, (req, res)=>{
     
@@ -332,20 +335,26 @@ app.post("/home-user", urlencoder, (req, res)=>{
 // we can access what multer saved through the req.file object
 // req.file.filename = name that multer assigned to the saved image
 // req.file.originalname = original name of the file from user's computer
-app.post("/upload", upload.single("img"),(req, res)=>{
+app.post("/add", urlencoder ,upload.single("img"),(req, res)=>{
   console.log(req.body.title)
+  console.log(req.body.description)
   console.log(req.file.filename)
   console.log(req.file.originalfilename)
+    
+    var title = req.body.title
+    var description = req.body.description
+    var status = req.body.status
 
   // multer saves the actual image, and we save the filepath into our DB
   var p = new Post({
-      title : req.body.title,
+      title: req.body.title,
       filename : req.file.filename,
-      originalfilename : req.file.originalname
+      originalfilename : req.file.originalname,
+      description
     })
 
   p.save().then((doc)=>{
-      res.render("profile.hbs", {
+      res.render("upload.hbs", {
         title : doc.title,
         id : doc._id
       })

@@ -8,18 +8,15 @@ var postSchema = mongoose.Schema({
         minlength:3,
         trim : true
     },
-    
     description:{
         type:String,
         required: true,
         minlength:5
     },
     
-    photo:{
-        title : String,
-        filename : String,
-        originalfilename: String
-    },
+    filename: String,
+    
+    originalfilename: String,
     
     username:{
         users: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
@@ -38,6 +35,10 @@ var postSchema = mongoose.Schema({
     tags:{
         tag: [{type: mongoose.Schema.ObjectId, ref:'Post'}]
     }
+    
+}, 
+{
+    timestamps: true
 })
 
 var Post = mongoose.model("post", postSchema )
