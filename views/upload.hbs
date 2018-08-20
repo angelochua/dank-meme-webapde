@@ -39,18 +39,21 @@
         </div>
         <br><br><br>
           <div id="upload-container">
-            <form action="add" method="post">
+            <form action="add" method="post" enctype="multipart/form-data">
            <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title"></div>
            
             <br>
             
             <div class="up-tags"><textarea name="description" id = "description" placeholder="description"></textarea></div>
+            
+            <input type="file" name = "photo" id = "image" required>    
+                
             <select name="status" id="meme-privacy">
                <option value="public">public</option>
                <option value="private">private</option>
            </select>
             
-            <input type="file" id = "image" accept="image/*"  required>    
+                
             
             <div><input type="text" id = "tags" placeholder="Tags" name="tags"></div>  
             

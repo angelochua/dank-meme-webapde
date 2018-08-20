@@ -23,8 +23,7 @@ var postSchema = mongoose.Schema({
     },
     
     status:{
-        type: String,
-        required: true
+        type: String
     },
     
     sharedto:{

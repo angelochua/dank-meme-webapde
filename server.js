@@ -335,7 +335,7 @@ app.post("/home-user", urlencoder, (req, res)=>{
 // we can access what multer saved through the req.file object
 // req.file.filename = name that multer assigned to the saved image
 // req.file.originalname = original name of the file from user's computer
-app.post("/add", urlencoder ,upload.single("img"),(req, res)=>{
+app.post("/add", urlencoder ,upload.single("photo"),(req, res)=>{
   console.log(req.body.title)
   console.log(req.body.description)
   console.log(req.file.filename)
