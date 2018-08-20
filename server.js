@@ -13,6 +13,7 @@ const bodyparse = require("body-parser")
 const fs = require("file-system")
 const multer = require("multer")
 const path = require("path")
+const session = require("session")
 
 
 /***** SCHEMA *******/
@@ -52,7 +53,16 @@ const upload = multer({
   }
 })
 
-
+/***** use sessions for tracking logins ***
+app.use(session({
+  secret: 'work hard',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
+*/
 
 /*****ROUTES*********/
 app.get("/", (req, res)=>{
@@ -272,7 +282,47 @@ app.post("/upload", urlencoder, (req, res)=>{
 
 app.post("/register", urlencoder, (req, res)=>{
     console.log("post/ register")
-   
+/*   
+    if (req.body.username &&
+    req.body.password &&
+    req.body.description) {
+
+    var userData = {
+      username: req.body.username,
+      password: req.body.password,
+      description: req.body.description,
+    }
+
+    User.create(userData, function (error, user) {
+      if (error) {
+        return next(error);
+      } else {
+        req.session.userId = user._id;
+        return res.redirect('/home-user');
+      }
+    });
+
+  } 
+    else if (req.body.username && req.body.password) {
+    User.authenticate(req.body.username, req.body.password, function (error, user) {
+      if (error || !user) {
+        var err = new Error('Wrong user or password.');
+        err.status = 401;
+        return next(err);
+      } else {
+        req.session.userId = user._id;
+        return res.redirect('/profile');
+      }
+    });
+  } else {
+    var err = new Error('All fields required.');
+    err.status = 400;
+    return next(err);
+  }
+})
+*/    
+    
+
     var username = req.body.username
     var password = req.body.password
     var description = req.body.description
@@ -292,8 +342,10 @@ app.post("/register", urlencoder, (req, res)=>{
             error: "username/password invalid  " + err       
             })
     })
-   
+
 })
+
+
 
 app.post("/edit", urlencoder, (req,res)=>{
     console.log("post/edit" + req.body.id)

@@ -292,7 +292,10 @@ body {
     font-weight: bolder;
     width: 80%;
     border-radius: 10px;
-    border-style: hidden;
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgray;
+    font-family: inherit;
 }
 
 .up-tags textarea {
@@ -302,6 +305,17 @@ body {
     color: dodgerblue;
     border-radius: 8px;
     border-style: solid;
+    font-family: inherit;
+}
+
+.tags-cont textarea{
+    font-size: 20px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgray;
+    font-family: inherit;
+    height: 5%;
 }
 
 

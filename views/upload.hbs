@@ -42,11 +42,13 @@
             <form action="add" method="post" enctype="multipart/form-data">
            <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title"></div>
            
-            <br>
+            
             
             <div class="up-tags"><textarea name="description" id = "description" placeholder="description"></textarea></div>
             
             <input type="file" name = "photo" id = "image" required>    
+            
+            <div class="tags-cont"><textarea role="combobox" id = "tags" placeholder="Tags" name="tags"></textarea></div> 
                 
             <select name="status" id="meme-privacy">
                <option value="public">public</option>
@@ -55,7 +57,7 @@
             
                 
             
-            <div><input type="text" id = "tags" placeholder="Tags" name="tags"></div>  
+             
             
             <div><input type="text" id = "sharedto" placeholder="Share to" name="sharedto"></div>    
             

@@ -99,6 +99,8 @@ body {
 
 .form-group {
     padding-bottom: 10px;
+    width: 800px;
+    align-content: center;
 }
 
 #login-form input[type ="text"], #login-form input[type ="password"]{
@@ -129,4 +131,26 @@ body {
     border: none;
 }
 
+.post-container {
+    border: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-color: lightgray;
+    border-radius: 7px;
+    border-width: thin;
+    background-color: white;
+}
 
+#login-container{
+    width: 50%;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+span {
+    text-align: center;
+}
