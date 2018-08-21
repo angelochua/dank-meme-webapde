@@ -182,6 +182,7 @@ app.post("/signin", urlencoder, (req, res)=>{
     var uname = req.body.username
     var pword = req.body.password
     
+    
     Post.find().then((posts)=>{
             console.log(posts)
     }, (err)=>{
@@ -357,7 +358,12 @@ app.post("/register", urlencoder, (req, res)=>{
     var password = req.body.password
     var description = req.body.description
     
+    var hashedpassword = crypto.createHash("md5").update(password).digest("hex")
+    console.log(hashedpassword)
+    
     console.log(username + "  " + password + " " + description)
+    
+    password = hashedpassword
     
     var n = new User({
         username, password, description
