@@ -1,12 +1,48 @@
 const mongoose = require("mongoose")
 
+var tagSchema = mongoose.Schema({
+    name:{
+        type: String,
+        required: true,
+    },
+    username:{
+        type: Array,
+        limit: 1,
+        items: userSchema
+    },
+    post:{
+        type: Array,
+        items: postSchema
+    }
+})
+
+var userSchema = mongoose.Schema({
+    username: {
+        type:String, 
+        required: true,
+        minlength:3,
+        trim : true,
+        unique: true
+    },
+    password:{
+        type:String,
+        required: true,
+        minlength:4
+    },
+    Udescription:{
+        type:String
+        
+    },
+    post:{
+        type: Array,
+        items: postSchema
+    }
+})
 
 var postSchema = mongoose.Schema({
     title: {
         type:String, 
         required: true,
-        minlength:3,
-        trim : true
     },
     description:{
         type:String,
@@ -19,7 +55,8 @@ var postSchema = mongoose.Schema({
     originalfilename: String,
     
     username:{
-        users: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
+        type: Array,
+        items: userSchema
     },
     
     status:{
@@ -27,12 +64,12 @@ var postSchema = mongoose.Schema({
     },
     
     sharedto:{
-        type: String,
-        minlength: 3
+        type: String
     },
     
     tags:{
-        tag: [{type: mongoose.Schema.ObjectId, ref:'Post'}]
+        type: Array,
+        items: tagSchema
     }
     
 }, 

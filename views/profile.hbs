@@ -76,11 +76,10 @@
         
         <br><br><br>
         <div class="user-profile-container">
-            <span>Benedick Cumberbacht</span>
+            <span>WELCOME, {{currentUserLoggedIn}}</span>
             <br><br>
-            Description:
             <br>
-            <p>Our daily lives are so mundane, we get taken over by what is immediately in front of us and we don't see beyond that.</p>
+            <p>{{Udescription}}</p>
             
         </div>
         
@@ -116,7 +115,7 @@
                 
                 
                 <div class="tags">
-                    <span class="tag-cont">#sampletag1</span> <span class="space"> </span><span class="tag-cont"> #sampletag2</span>
+                    <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
                 </div>
                 <button class="view" data-id="{{_id}}"><i class="fa fa-edit"></i> Edit</button>
                 

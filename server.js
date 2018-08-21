@@ -14,6 +14,7 @@ const fs = require("file-system")
 const multer = require("multer")
 const path = require("path")
 const session = require("session")
+const crypto = require("crypto")
 
 
 /***** SCHEMA *******/
@@ -63,6 +64,8 @@ app.use(session({
   })
 }));
 */
+
+var currentUserLoggedIn
 
 /*****ROUTES*********/
 app.get("/", (req, res)=>{
@@ -176,8 +179,35 @@ app.post("/signin", urlencoder, (req, res)=>{
     
     //check login here
     
-    var username = req.body.username
+    var uname = req.body.username
+    var pword = req.body.password
     
+    Post.find().then((posts)=>{
+            console.log(posts)
+    }, (err)=>{
+        console.log(err)
+    })
+
+    
+    User.findOne({
+        username: uname,
+        password: pword
+    }).then((u)=>{
+        res.render("home-user.hbs",{
+            username: uname
+        })
+    }, () => {
+        res.render("login.hbs", {
+            error: "user/pass incorrect"
+        })
+    })
+    
+    currentUserLoggedIn = uname
+    console.log(currentUserLoggedIn)
+    
+    
+    
+    /*
     Post.find().then((posts)=>{
         res.render("home-user.hbs",{
             posts, username
@@ -187,7 +217,7 @@ app.post("/signin", urlencoder, (req, res)=>{
         error: "Somthing went wrong, try again"
     })
     })
-   
+   */
 })
 
 app.post("/search", urlencoder, (req, res)=>{
@@ -263,7 +293,7 @@ app.post("/profile", urlencoder, (req, res)=>{
     
     Post.find().then((posts)=>{
         res.render("profile.hbs",{
-            posts
+            posts, currentUserLoggedIn
         })
     }, (err)=>{
         res.render("profile.hbs",{
@@ -342,6 +372,8 @@ app.post("/register", urlencoder, (req, res)=>{
             error: "username/password invalid  " + err       
             })
     })
+    
+    currentUserLoggedIn = username
 
 })
 
@@ -396,13 +428,20 @@ app.post("/add", urlencoder ,upload.single("photo"),(req, res)=>{
     var title = req.body.title
     var description = req.body.description
     var status = req.body.status
+    var username = currentUserLoggedIn
+    var tags = req.body.tags.split('#')
+    tags.splice()
+    
+console.log(title + " " + username + " " + tags + " " + status)    
 
   // multer saves the actual image, and we save the filepath into our DB
   var p = new Post({
       title: req.body.title,
       filename : req.file.filename,
       originalfilename : req.file.originalname,
-      description
+      description,
+      username, 
+      tags
     })
 
   p.save().then((doc)=>{
@@ -410,8 +449,23 @@ app.post("/add", urlencoder ,upload.single("photo"),(req, res)=>{
         title : doc.title,
         id : doc._id
       })
+      console.log(p)
     })
 })
+/*
+  User.findOneAndUpdate({
+      username: currentUserLoggedIn
+  }//,{
+    //  console.log(p)
+      //$push: {post : {p}}
+  //}
+  ).then((user)=>{
+      res.render("upload.hbs")
+  }, ()=>{
+      console.log("error")
+      res.render("upload.hbs")
+  })
+*/
 
 // this should be in controller post
 app.get("/photo/:id", (req, res)=>{
@@ -440,3 +494,4 @@ app.post("/logout", (req, res)=>{
 
 /*****LISTEN********/
 app.listen(3000)
+    console.log("LISTENING")
