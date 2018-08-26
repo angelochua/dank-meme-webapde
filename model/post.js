@@ -5,6 +5,9 @@ var postSchema = mongoose.Schema({
         type: String, 
         required: true
     },
+    description:{
+        type: String
+    },
     filename : String,
     originalname: String,
     privacy: String,

@@ -38,6 +38,7 @@ router.get("/", function(req, res){
     })
   })  
 })
+
 router.get("/home", function(req, res){
   console.log("[GET] Lead to home page")
   Post.getAll().then((posts)=>{
@@ -46,8 +47,20 @@ router.get("/home", function(req, res){
     })
   })  
 })
+
+
+router.get("/login", function(req, res){
+  console.log("go to login page")
+  res.render("login.hbs") 
+})
+
+router.get("/signup", function(req, res){
+  console.log("go to login page")
+  res.render("signup.hbs") 
+})
+
 router.get("/userhome", function(req, res){
-  console.log("[GET] Lead to user homepage")
+  console.log("go to signup page")
   var username = req.session.username    
     
   Post.getAll().then((posts)=>{

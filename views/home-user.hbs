@@ -21,20 +21,20 @@
               
             <nav id="navbar">
                 <ul>
-                    <form action="home-user" method="post">
+                    <form action="post/home-user" method="post">
                         <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
                     </form>    
                     
-                    <form action="search-user" method="post">
+                    <form action="post/search-user" method="post">
                         <input type="search" id="search-box" placeholder="Search..." name="tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
-                    <form id="form-li" action="profile" method="post">
+                    <form id="form-li" action="post/profile" method="post">
                     <li id="profile-li"><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
                     </form>    
                     
-                    <form id="form-li" action="upload" method="post">
+                    <form id="form-li" action="post/upload" method="post">
                     <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
                     </button></li>
                     </form>    
@@ -52,11 +52,11 @@
         
         <div id="content-container">
          
-            {{#each posts}}
+            {{#each posts}} 
             <div class="post-container">
                 
                 <div class="icon"></div>
-                <div class="name"><span><a href="dom2.html">{{username}}</a></span></div>
+                <div class="name"><span><a>{{author}}</a></span></div>
                 
                 <div class="title-des">
                     <span><h1>{{title}}</h1></span>
@@ -69,7 +69,8 @@
                 
                 
                 <div class="popup"> 
-                    <a href="meme2-user.html" target="_blank">
+                    <a type= "hidden"> Id : {{_id}} Author : {{author}}<br> Privacy: {{privacy}}</a>
+                    <a>
                         
                     <img id="my_image" src="/photo/{{id}}"/>
                     </a>
@@ -81,6 +82,7 @@
                 
             </div>
             {{/each}}
+           
          </div> 
         
         
