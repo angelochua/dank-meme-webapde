@@ -1,0 +1,146 @@
+body {
+    background-color: lightgray;
+    font-family: sans-serif, serif, fantasy;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+#container-nav {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    float: right;
+}
+
+#navbar {
+    background-color: black;
+    color: wheat;
+    text-align: right;
+    margin-bottom: 15px;
+    height: 45px;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 7px;
+    list-style: none;
+}
+
+#navbar li {
+    display: inline;
+    padding-right: 15px;   
+}
+
+#form-li{
+    display: inline;
+    padding-right: 15px;   
+    overflow-x: hidden;
+}
+
+#home-button {
+    float: left;
+    margin-left: 110px;
+    font-size: 21px;
+    background-color: black;
+}
+
+
+
+#home-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#home-button a:hover{
+    text-decoration:none;
+    color: red;
+    border-color: red;
+}
+
+#login-button {
+    font-size: 16px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border-color: black;
+    margin-right: 100px;
+    
+}
+
+#login-button a{
+    text-decoration:none;
+    color: white;
+    padding: 10px;
+}
+
+#login-button a:hover{
+    background-color: red;
+}
+
+
+.big {
+    text-align: center;
+    font-size: 40px;
+}
+
+.small {
+    text-align: center;
+    font-size: 20px;
+    color: gray;
+}
+
+#form-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#register-form {
+    padding: 15px;
+}
+
+.form-group {
+    padding-bottom: 12px;
+} 
+
+#register-form input[type ="text"], #register-form input[type ="password"]{
+    padding: 9px;
+    width: 40%;
+    border-radius: 12px;
+    border-style: ridge;
+    font-size: 18px;
+}
+
+#register-form textarea {
+    padding: 9px;
+    width: 80%;
+    height: 15%;
+    border-radius: 12px;
+    border-style: ridge;
+    font-size: 18px;
+}
+
+#register-form input[type ="submit"] {
+    padding: 5px;
+    padding-left: 55px;
+    padding-right: 55px;
+    background-color: red;
+    color: white;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.form-sub {
+    width: auto;
+    margin-left: 300px;
+}
+
+#searchSubmit{
+    background-color: black;
+    color: white;
+    border: none;
+}
+

@@ -1,80 +1,67 @@
 const mongoose = require("mongoose")
 
-var userSchema = mongoose.Schema({
-    username: {
-        type:String, 
-        required: true,
-        minlength:3,
-        trim : true,
-        unique: true
-    },
-    password:{
-        type:String,
-        required: true,
-        minlength:4
-    },
-    Udescription:{
-        type:String
-        
-    },
-    post:{
-        post: {type: Array,
-              items: postSchema}
-    }
-})
-
-var postSchema = mongoose.Schema({
-    title: {
-        type:String, 
-        required: true,
-    },
-    description:{
-        type:String,
-        required: true,
-        minlength:5
-    },
-    
-    filename: String,
-    
-    originalfilename: String,
-    
-    username:{
+var TagSchema = mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    
-    status:{
-        type: String
-    },
-    
-    sharedto:{
-        type: String,
-        minlength: 3
-    },
-    
-    tags:{
-        type: Array,
-        items: String
-    }
-    
-}, 
-{
-    timestamps: true
-})
-
-var tagSchema = mongoose.Schema({
-    name:{
-        type: String,
-        required: true,
-    },
-    post:{
-        type: Array,
-        items: postSchema
+    posts: {
+        type: Array
     }
 })
 
-var Tags = mongoose.model("tags", tagSchema)
+var Tag = mongoose.model("tags", TagSchema)
 
-module.exports = {
-    Tags
+
+exports.create = function (tag) {
+    return new Promise(function (resolve, reject) {
+        console.log(tag)
+        var u = new Tag(tag)
+
+        u.save().then((newTag) => {
+            console.log(newTag)
+            resolve(newTag)
+        }, (err) => {
+            reject(err)
+        })
+    })
+}
+
+exports.getAll = function () {
+    return new Promise(function (resolve, reject) {
+        Tag.find().then((posts) => {
+            resolve(posts)
+        }, (err) => {
+            reject(err)
+        })
+    })
+}
+
+exports.pushPost = function (tag, post) {
+    return new Promise(function (resolve, reject) {
+        Tag.findOneAndUpdate({
+            name: tag
+        }, {
+            $push: {
+                posts: post
+            }
+        }).then((updated) => {
+            resolve(updated)
+        }, (err) => {
+            reject(err)
+        })
+    })
+
+}
+
+exports.findTag = function (name) {
+    return new Promise(function (resolve, reject) {
+        Tag.findOne({
+            name: name,
+        }).then((tag) => {
+            resolve(tag)
+        }, (err) => {
+            reject(err)
+        })
+    })
 }

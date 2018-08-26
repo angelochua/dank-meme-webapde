@@ -1,0 +1,155 @@
+body {
+    background-color: white;
+    font-family: sans-serif, serif, fantasy;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+    background-color: lightgray;
+}
+
+#container-nav {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    float: right;
+}
+
+#navbar {
+    background-color: black;
+    color: wheat;
+    text-align: right;
+    margin-bottom: 15px;
+    height: 45px;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 7px;
+    list-style: none;
+}
+
+#navbar li {
+    display: inline;
+    padding-right: 15px;   
+}
+
+#form-li{
+    display: inline;
+    padding-right: 15px;   
+    overflow-x: hidden;
+    
+}
+
+#home-button {
+    float: left;
+    margin-left: 110px;
+    font-size: 21px;
+    background-color: black;
+}
+
+#home-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#home-button a:hover{
+    text-decoration:none;
+    color: red;
+    border-color: red;
+}
+
+#search-box {
+    float: left;
+    border-radius: 3px;
+    border-color: black;
+    padding: 5px;
+    font-size: 13px;
+    margin-left: 250px;
+    width: 30%;
+}
+
+#login-button {
+    font-size: 16px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border-color: black;
+    
+}
+
+#login-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#signup-button {
+    font-size: 16px;
+    padding: 5px 14px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    border-color: red;
+    margin-right: 105px;
+    
+}
+
+#signup-button a{
+    text-decoration:none;
+    color: white;
+}
+
+#content-container {
+    width: 600px;
+    display: block;
+    margin-left: 25%;
+}
+
+#content-container span {
+    margin-left: 250px;
+}
+
+.user-profile-container {
+    width: 50%;
+    float: left;
+    margin-left: 550px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.user-profile-container span{
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
+
+#content-container img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 20px;
+    border-top-style: solid;
+    border-top-width: thin;
+    border-top-color: lightgray;
+    padding : 10px;
+}
+
+.name a {
+    text-decoration: none;
+    font-weight: 900;
+    color: black;
+}
+
+.name a:hover {
+    text-decoration: underline;
+}
+
+#searchSubmit{
+    background-color: black;
+    color: white;
+    border: none;
+}
