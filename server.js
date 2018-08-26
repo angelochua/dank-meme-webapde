@@ -15,7 +15,7 @@ app.set("view-engine", "hbs");
 app.use(cookieparser())
 
 app.use(express.static(require('path').join(__dirname,'/public')))
-app.use(express.static(require('path').join(__dirname,'/controllers')))
+app.use(express.static(require('path').join(__dirname,'/controller')))
 var currentUserLoggedIn
 
 mongoose.Promise = global.Promise
@@ -34,9 +34,9 @@ app.use(session({
   }
 }))
 
-app.use(require("./controllers/home"))
-app.use(require("./controllers/post"))
-app.use(require("./controllers/user"))
+app.use(require("./controller/index"))
+app.use(require("./controller/post"))
+app.use(require("./controller/user"))
 
 app.listen(3000, () => {  
     console.log("[LISTEN] Running in port 3000")
