@@ -52,13 +52,14 @@
         
         <div id="content-container">
          
-            {{#each posts}} 
+            {{#each posts}}
+            {{#checkprivacy 'public' privacy}}
             <div class="post-container">
                 
                 <div class="icon"></div>
-                <div class="name"><span><a>{{author}}</a></span></div>
+                <div class="name"><span><a>{{authorname}}</a></span></div>
                 
-                <div class="title-des">
+                 <div class="title-des">
                     <span><h1>{{title}}</h1></span>
                 </div>
                 
@@ -67,22 +68,20 @@
                 </div>
                 
                 
-                
-                <div class="popup"> 
-                    <a type= "hidden"> Id : {{_id}} Author : {{author}}<br> Privacy: {{privacy}}</a>
+              
                     <a>
-                        
-                    <img id="my_image" src="/photo/{{id}}"/>
+                       
+                        <img id="my_image" src="/photo/{{id}}"/>
                     </a>
-                </div>
-                
+               
                 <div class="tags">
                     <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
                 </div>
-                
+            
             </div>
-            {{/each}}
-           
+            {{else}}
+            {{/checkprivacy}}
+            {{/each}}           
          </div> 
         
         

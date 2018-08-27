@@ -50,7 +50,7 @@
             <nav id="navbar">
                 <ul>
                     <form id="form-li"
-                          action="post/home-user" method="post">
+                          action="/home-user" method="get">
                         <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
                     </form>    
                     
@@ -60,12 +60,12 @@
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
-                    <form id="form-li" action="post/upload" method="post">
+                    <form id="form-li" action="/upload" method="post">
                     <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
                     </button></li>
                     </form>    
                    
-                    <form id="form-li" action="index/logout" method="post">
+                    <form id="form-li" action="/logout" method="get">
                     <li><button type="submit" id="profile-button"><strong><i class="fa fa-logout"></i> Logout</strong></button></li>
                     </form>
                 </ul>
@@ -76,9 +76,8 @@
         
         <br><br><br>
         <div class="user-profile-container">
-            <span>WELCOME, {{user.username}}</span>
+            <span>Welcome, {{user.username}}</span>
             <br><br>
-            <br>
             <p>{{user.description}}</p>
             
         </div>
@@ -90,7 +89,7 @@
                 
            {{#each posts}}
             {{#filter author}}
-            <form id="deleteform" action="post/delete" method="post">
+            <form id="deleteform" action="/delete" method="get">
                 <input type="hidden" value="{{_id}}" name="id" id="deleteid">
             </form>
             
@@ -125,6 +124,12 @@
             </div>
             
             {{else}}
+                
+            <!---    <div class="post-container">
+                <div class="title-des">
+                    <span><h1>UPLOAD ONE NOW!</h1></span>
+                </div>  
+                </div> -->
             {{/filter}}
             
             {{/each}}

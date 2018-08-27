@@ -118,7 +118,7 @@ router.get("/photo/:id", (req, res)=>{
   })
 })
 
-router.delete("/delete", urlencoder, (req, res) => {
+router.get("/delete", urlencoder, (req, res) => {
 	console.log("[POST] /deletepost " + req.body.id)
 	
 	Post.delete(req.body.id).then((result) => {
@@ -145,7 +145,7 @@ router.post("/edit", urlencoder, (req, res) => {
     var user = currentLoggedIN
     
     var tags = req.body.tags
-    parsedTags = tags.split(",")
+    parsedTags = tags.split(" ")
     if (parsedTags.includes("")){
         var notNeeded = parsedTags.indexOf("")
         parsedTags.splice(notNeeded)

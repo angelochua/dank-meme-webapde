@@ -15,21 +15,21 @@
             <nav id="navbar">
                 <ul>
                     <form id="form-li"
-                          action="home-user" method="post">
+                          action="/home-user" method="get">
                         <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
                     </form>    
                     
                     <form id="form-li"
-                          action="search" method="post">
+                          action="post/search-user" method="post">
                         <input type="search" id="search-box" placeholder="Search...">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
-                     <form id="form-li" action="home-user" method="post">
-                        <button type="submit" id="home-button"><a><strong>HOME</strong></a></button>
-                    </form>    
+                     <form id="form-li" action="/home-user" method="get">
+                        <button type="submit" id="home-but"><a><strong><i class="fa fa-home"></i></strong></a></button>
+                    </form> 
                     
-                    <form id="form-li" action="profile" method="post">
+                    <form id="form-li" action="/profile" method="post">
                         <li><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
                     </form>    
                 </ul>
@@ -41,20 +41,37 @@
           <div id="upload-container">
             <form action="edit" method="post">
                 <input type ="hidden" value="{{post._id}}" name="id">
-                
+            <strong id="dis"> TITLE </strong>    
            <div class="up-group"><input type="text" id = "title" value="{{post.title}}" name="title"></div>
+            
            
             <br>
-            
+            <strong id="dis"> DESCRIPTION </strong>
             <div class="up-tags"><textarea name="description" id = "description" placeholder="{{post.description}}"></textarea></div>
+                
             
-           <select name="status" id="meme-privacy">
+            <br><br>
+            <strong id="dis"> TAGS </strong>        
+            <div class="tags-cont"><textarea role="combobox" id = "tags" placeholder="{{post.tags}}" name="tags"></textarea></div> 
+            
+            
+            <br>
+            <strong id="dis">PRIVACY</strong> 
+            <br> 
+            <select name="privacy" id="meme-privacy">
                <option value="public">public</option>
                <option value="private">private</option>
-           </select>
+            </select>
+               
+            <br>
+            <strong id="dis">Share To:</strong>
+            <div><input type="text" id = "sharedto" placeholder="Share to" name="shareto"></div>      
             
             
-            <input type = "submit" id = "submit">
+            <br>
+            <div id="submit-cont">    
+            <input id="submit-button" type = "submit" id = "submit">
+            </div>
             </form>
         </div>  
     </body>

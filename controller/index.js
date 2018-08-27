@@ -51,12 +51,14 @@ router.get("/home-user", function(req, res){
   var username = req.session.username    
     
   Post.getAll().then((posts)=>{
-    if (req.session.username) {       
+    if (req.session.username) {   
+        console.log(posts)
         res.render("home-user.hbs", {
           posts
         })
     }
-  })  
+  })
+    
 })
 router.post("/profile", (req, res)=>{
   console.log("[POST] /user/profile")
@@ -72,7 +74,7 @@ router.post("/profile", (req, res)=>{
     Post.getAll().then((posts)=>{
        User.getOtherUsers(user).then((users)=>{
           res.render("profile.hbs", {
-              user, posts, users, description1
+              user, posts, users
           })
        })
     })  

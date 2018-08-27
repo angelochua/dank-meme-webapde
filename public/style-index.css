@@ -426,6 +426,10 @@ li{
     font-weight: bold;
 }
 
+#dis {
+    color: darkgray;
+}
+
 /* modal */
             .modal {
                 display:none; 
