@@ -53,15 +53,13 @@
         <div id="content-container">
          
             {{#each posts}}
-            {{#checkprivacy 'public' privacy}}
             <div class="post-container">
-                
-                <div class="icon"></div>
-                <div class="name"><span><a>{{authorname}}</a></span></div>
-                
-                 <div class="title-des">
-                    <span><h1>{{title}}</h1></span>
-                </div>
+                        <div class="icon"></div>
+                        <div class="name"><span><a>{{authorname}}   </a></span></div>
+                     <!--  <a id="share"> shared a post to you </a> -->
+                         <div class="title-des">
+                            <span><h1>{{title}}</h1></span>
+                        </div>
                 
                 <div class="description">
                     <span><h4>{{description}}</h4></span>
@@ -81,8 +79,7 @@
                 </div>
             
             </div>
-            {{else}}
-            {{/checkprivacy}}
+    
             {{/each}}           
          </div> 
         

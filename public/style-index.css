@@ -319,6 +319,14 @@ body {
     height: 5%;
 }
 
+#share{
+    font-size: 10px;
+    color:gray;
+    font-style: normal;
+    font-weight: 200;
+    
+    
+}
 
 #sep {
     margin: 0;

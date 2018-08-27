@@ -40,7 +40,7 @@ router.post("/", urlencoder, (req, res)=>{
 })
 
 router.post("/search", (req, res)=>{
-    console.log("[POST] /post/search")
+    console.log("/post/search")
     tag = req.body.tags
     console.log(tag)
     
@@ -52,7 +52,7 @@ router.post("/search", (req, res)=>{
 })
 
 router.post("/search-user", (req, res)=>{
-    console.log("[POST] /post/search-user")
+    console.log("/post/search-user")
     tag = req.body.tags
      console.log(tag)
     Post.getByTag(tag).then((posts)=>{
@@ -76,12 +76,15 @@ router.post("/upload" , function(req,res){
 })
 
 router.post("/add", upload.single("filename"),(req, res)=>{
-  console.log("[POST] /post/upload")
+  console.log("/post/add")
     
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 
     var currentuserID = currentLoggedIN._id
     var currentusername = currentLoggedIN.username
+    var check = req.body.filename
+    
+    
     
     var tags = req.body.tags
     parsedTags = tags.split(" ")
@@ -127,15 +130,15 @@ router.get("/photo/:id", (req, res)=>{
 })
 
 router.get("/delete", urlencoder, (req, res) => {
-	console.log("[POST] /deletepost " + req.body.id)
+	console.log("/deletepost " + req.query.id)
 	
-	Post.delete(req.body.id).then((result) => {
-		res.send(result)
+	Post.delete(req.query.id).then((result) => {
+		res.redirect("/profile")
 	})
 })
 
 router.get("/viewpost", urlencoder, (req, res) => {
-	console.log("[GET] /viewpost" + req.query.id)
+	console.log("/viewpost" + req.query.id)
 	
     
     
@@ -151,7 +154,7 @@ router.get("/viewpost", urlencoder, (req, res) => {
 })
 
 router.post("/edit", urlencoder, (req, res) => {
-	console.log("[POST] /edit" + req.body.id)
+	console.log("/edit" + req.body.id)
 	
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 
@@ -193,7 +196,7 @@ hbs.registerHelper('checkprivacy', function(p1, p2, options) { //this hbs functi
     }
 })
 
-hbs.registerHelper('checkprivacyforuserhome', function(p1, p2, shareto, authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
+hbs.registerHelper('checkprivacyhomeuser', function(p1, p2, shareto, authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
     console.log(shareto)
     
     var controllerUser = require("./user")
