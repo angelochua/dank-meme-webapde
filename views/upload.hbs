@@ -44,11 +44,11 @@
             <span id="uplo"><Strong id="dis">IMAGE: </Strong> <input type="file" name = "filename" id = "image" required></span>  
             <br>    
             <STRONG id="dis">TITLE</STRONG>    
-           <div class="up-group"><input type="text" id = "title" placeholder="Title" name="title" required></div>
+           <div class="up-group"><input type="text" id = "title" placeholder=" " name="title" required></div>
            
             <br>
             <STRONG id="dis"> DESCRIPTION </STRONG>    
-            <div class="up-tags"><textarea name="description" id = "description" placeholder="description" required></textarea></div>
+            <div class="up-tags"><textarea name="description" id = "description" placeholder=" " required></textarea></div>
             
             
             <br>
@@ -68,7 +68,7 @@
             <br>
             <Strong id="dis">Share To:</Strong>    
             <div>      
-                Choose users:
+                Choose users: <br>
                 {{#each users}}
                 <input name ="shareto"type="checkbox" value="{{username}}">@{{username}}<br>
                 {{/each}}

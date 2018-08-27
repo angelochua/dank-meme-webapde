@@ -41,25 +41,47 @@
         <br>
         
         <div class="user-profile-container">
-            <span>#{{tag}} </span>
+            <span>{{tag}} </span>
             <br><br>
             
         </div>
         
         <div id="content-container">
-            
+           {{#each posts}}
+            {{#checkprivacy 'public' privacy}}
             <div class="post-container">
-                <div class="one">
-                    <a href="meme2-user.html" target="_blank">
-                        <img src="meme2.jpg" alt="meme-post-1">
-                    </a>
+                
+                <div class="icon"></div>
+                <div class="name"><span><a>{{authorname}}</a></span></div>
+                
+                 <div class="title-des">
+                    <span><h1>{{title}}</h1></span>
                 </div>
                 
+                <div class="description">
+                    <span><h4>{{description}}</h4></span>
+                </div>
+                
+                <input type="hidden" id="Id" value="{{_id}}"> 
+                <input type="hidden" id="Author" value="{{author}}"> 
+                <input type="hidden" id="Privacy" value="{{privacy}}"> 
                 
                 
-            </div>
+              
+                    <a>
+                       
+                        <img id="my_image" src="/photo/{{id}}"/>
+                    </a>
+               
+                <div class="tags">
+                    <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
+                </div>
             
-        </div>
+            </div>
+            {{else}}
+            {{/checkprivacy}}
+            {{/each}}
+         </div>
         
     </body>
 

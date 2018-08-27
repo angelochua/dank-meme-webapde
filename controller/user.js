@@ -79,7 +79,7 @@ router.post("/signin", (req, res)=>{
     }
   }, (error)=>{
         console.log("ERROR")
-        res.render("index.hbs", {  
+        res.redirect("/login", {  
             error: "Wrong credentials. Try again."
         })
   })
