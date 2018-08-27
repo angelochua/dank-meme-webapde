@@ -92,6 +92,7 @@ router.post("/add", upload.single("filename"),(req, res)=>{
         tags: parsedTags,
         shareto: req.body.shareto
     }
+    console.log(newpost + "=====>CREATED")
     
     Post.create(newpost).then((post)=>{
        Post.getAll().then((posts)=>{
