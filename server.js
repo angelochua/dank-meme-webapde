@@ -38,6 +38,6 @@ app.use(require("./controller/index"))
 app.use(require("./controller/post"))
 app.use(require("./controller/user"))
 
-app.listen(3000, () => {  
+app.listen(process.env.PORT ||3000, () => {  
     console.log("[LISTEN] Running in port 3000")
 })
