@@ -67,7 +67,12 @@
              
             <br>
             <Strong id="dis">Share To:</Strong>    
-            <div><input type="text" id = "sharedto" placeholder="Share to" name="shareto"></div>    
+            <div>      
+                Choose users:
+                {{#each users}}
+                <input name ="shareto"type="checkbox" value="{{username}}">@{{username}}<br>
+                {{/each}}
+            </div>    
             
             <br>
             <div id="submit-cont">    

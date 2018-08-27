@@ -302,7 +302,7 @@ body {
     width: 80%;
     height: 20%;
     font-size: 30px;
-    color: dodgerblue;
+    color: black;
     border-radius: 8px;
     border-style: solid;
     font-family: inherit;
@@ -420,6 +420,7 @@ li{
     padding-left: 50px;
     margin-left: 200px;
 }
+
 
 #uplo{
     color: black;

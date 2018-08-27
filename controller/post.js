@@ -64,7 +64,15 @@ router.post("/search-user", (req, res)=>{
 
 router.post("/upload" , function(req,res){
     console.log("/OPEN upload.HBS")
-    res.render("upload.hbs")
+    
+    
+   User.getAll().then((users)=>{
+        console.log("PASOK " + users)
+       res.render("upload.hbs", {
+         users
+      })
+    })  
+    
 })
 
 router.post("/add", upload.single("filename"),(req, res)=>{

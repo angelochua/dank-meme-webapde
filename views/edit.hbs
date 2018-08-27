@@ -50,7 +50,7 @@
             <div class="up-tags"><textarea name="description" id = "description" placeholder="{{post.description}}"></textarea></div>
                 
             
-            <br><br>
+            <br>
             <strong id="dis"> TAGS </strong>        
             <div class="tags-cont"><textarea role="combobox" id = "tags" placeholder="{{post.tags}}" name="tags"></textarea></div> 
             
@@ -58,17 +58,21 @@
             <br>
             <strong id="dis">PRIVACY</strong> 
             <br> 
-            <select name="privacy" id="meme-privacy">
+            <select name="privacy" id="meme-privacy" value="public">
                <option value="public">public</option>
                <option value="private">private</option>
             </select>
                
             <br>
             <strong id="dis">Share To:</strong>
-            <div><input type="text" id = "sharedto" placeholder="Share to" name="shareto"></div>      
-            
-            
+            <div>      
+                Choose users:
+                {{#each users}}
+                <input name ="shareto"type="checkbox" value="{{username}}">@{{username}}<br>
+                {{/each}}
+            </div>
             <br>
+                
             <div id="submit-cont">    
             <input id="submit-button" type = "submit" id = "submit">
             </div>
