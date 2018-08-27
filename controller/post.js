@@ -137,10 +137,16 @@ router.get("/delete", urlencoder, (req, res) => {
 router.get("/viewpost", urlencoder, (req, res) => {
 	console.log("[GET] /viewpost" + req.query.id)
 	
+    
+    
+    
 	Post.get(req.query.id).then((post) => {
-		res.render("edit.hbs", {
-			post
-		})
+		User.getAll().then((users)=>{
+        res.render("edit.hbs", {
+			post,users
+		}) 
+      })
+        
 	})
 })
 
