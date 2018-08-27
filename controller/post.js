@@ -62,6 +62,11 @@ router.post("/search-user", (req, res)=>{
     })  
 })
 
+router.post("/upload" , function(req,res){
+    console.log("/OPEN upload.HBS")
+    res.render("upload.hbs")
+})
+
 router.post("/add", upload.single("filename"),(req, res)=>{
   console.log("[POST] /post/upload")
     
