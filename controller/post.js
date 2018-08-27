@@ -39,63 +39,28 @@ router.post("/", urlencoder, (req, res)=>{
   })
 })
 
-router.post("/home-user", urlencoder, (req, res)=>{  
-  console.log("[POST] /post/home-user")
-    
-  Post.create(post).then((post)=>{
-    Post.getAll().then((posts)=>{
-      res.render("home-user.hbs", {
-         posts
-      })
-    })
-  },(error)=>{
-    res.render("home-user.hbs")
-  })
-})
-
-
-router.post("/profile", urlencoder, (req, res)=>{  
-  console.log("[POST] /post/home-user")
-    
-  Post.create(post).then((post)=>{
-    Post.getAll().then((posts)=>{
-      res.render("profile.hbs", {
-         posts
-      })
-    })
-  },(error)=>{
-    res.render("profile.hbs")
-  })
-})
-
-
-
 router.post("/search", (req, res)=>{
     console.log("[POST] /post/search")
-    tag = req.body.newsearch
+    tag = req.body.tags
+    console.log(tag)
     
     Post.getByTag(tag).then((posts)=>{
       res.render("search.hbs", {
-         posts
+         posts, tag
       })
     })  
 })
 
 router.post("/search-user", (req, res)=>{
     console.log("[POST] /post/search-user")
-    tag = req.body.newsearch
-    
+    tag = req.body.tags
+     console.log(tag)
     Post.getByTag(tag).then((posts)=>{
       res.render("search-user.hbs", {
-         posts
+         posts, tag
       })
     })  
 })
-
-router.post("/upload", (req, res)=>{
-    res.render("upload.hbs")  
-})
-
 
 router.post("/add", upload.single("filename"),(req, res)=>{
   console.log("[POST] /post/upload")
@@ -120,8 +85,7 @@ router.post("/add", upload.single("filename"),(req, res)=>{
         author: currentuserID,
         authorname: currentusername,
         tags: parsedTags,
-        shareto: req.body.shareto,
-        description : req.body.description
+        shareto: req.body.shareto
     }
     
     Post.create(newpost).then((post)=>{
@@ -148,14 +112,12 @@ router.get("/photo/:id", (req, res)=>{
   })
 })
 
-router.post("/delete", urlencoder, (req, res) => {
+router.delete("/delete", urlencoder, (req, res) => {
 	console.log("[POST] /deletepost " + req.body.id)
 	
-	Post.remove({
-        _id: req.body.id
-    }).then(()=>{
-        res.redirect("/profile")
-    })
+	Post.delete(req.body.id).then((result) => {
+		res.send(result)
+	})
 })
 
 router.get("/viewpost", urlencoder, (req, res) => {

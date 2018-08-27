@@ -38,7 +38,6 @@ router.get("/", function(req, res){
     })
   })  
 })
-
 router.get("/home", function(req, res){
   console.log("[GET] Lead to home page")
   Post.getAll().then((posts)=>{
@@ -47,20 +46,8 @@ router.get("/home", function(req, res){
     })
   })  
 })
-
-
-router.get("/login", function(req, res){
-  console.log("go to login page")
-  res.render("login.hbs") 
-})
-
-router.get("/signup", function(req, res){
-  console.log("go to login page")
-  res.render("signup.hbs") 
-})
-
-router.get("/userhome", function(req, res){
-  console.log("go to signup page")
+router.get("/home-user", function(req, res){
+  console.log("[GET] Lead to user homepage")
   var username = req.session.username    
     
   Post.getAll().then((posts)=>{
@@ -77,12 +64,15 @@ router.post("/profile", (req, res)=>{
   var currentLoggedIN = controllerUser.getCurrentUser() 
   
   var user = currentLoggedIN
+  var description1 = controllerUser.getDescription
+  
+  console.log(description1)
   
   if (currentLoggedIN != undefined || currentLoggedIN!= null){
     Post.getAll().then((posts)=>{
        User.getOtherUsers(user).then((users)=>{
           res.render("profile.hbs", {
-              user, posts, users
+              user, posts, users, description1
           })
        })
     })  
@@ -103,6 +93,21 @@ router.get("/logout", function(req, res){
       posts
     })
   })  
+})
+
+router.post("/login" , function(req,res){
+    console.log("/OPEN LOGIN.HBS")
+    res.render("login.hbs")
+})
+
+router.post("/signup" , function(req,res){
+    console.log("/OPEN signup.HBS")
+    res.render("signup.hbs")
+})
+
+router.post("/upload" , function(req,res){
+    console.log("/OPEN upload.HBS")
+    res.render("upload.hbs")
 })
 
 module.exports = router

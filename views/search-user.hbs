@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style-user.css">
+        <link rel="stylesheet" type="text/css" href="/style-user.css">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>DANK</title>
@@ -11,22 +11,22 @@
               
             <nav id="navbar">
                 <ul>
-                   <form id="form-li" action="post/home-user" method="post">
+                   <form id="form-li" action="/home-user" method="get">
                         <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
                     </form>    
                     
-                    <form id="form-li" action="post/search-user" method="post">
+                    <form id="form-li" action="/search-user" method="post">
                         <input type="search" id="search-box" placeholder="Search..." name="tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
                    
                    
-                    <form id="form-li" action="user/profile" method="post">
+                    <form id="form-li" action="/profile" method="post">
                     <li><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
                     </form> 
                     
-                     <form id="form-li" action="user/upload" method="post">
+                     <form id="form-li" action="post/upload" method="post">
                     <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
                     </button></li>
                     </form>    

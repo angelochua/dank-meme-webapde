@@ -11,21 +11,8 @@ const urlencoder = bodyparser.urlencoded({
 router.use(urlencoder)
 var currentLoggedIn
 //////////////////////////////////////////////////////////////// START OF ROUTES
-
-router.post("/login", (req,res)=>{
-    res.render("login.hbs")
-})
-
-router.post("/signup", (req,res)=>{
-    res.render("signup.hbs")
-})
-
-
 router.post("/register", (req, res)=>{
   console.log("[POST] /user/register")
-    
-  
-
   var user = {
     username : req.body.username,
     password : req.body.password,
@@ -52,8 +39,7 @@ router.post("/register", (req, res)=>{
 })
 
 router.post("/signin", (req, res)=>{
-  console.log("[POST] /user/login")
-    
+  console.log("[POST] /user/signin")
   var username = req.body.username
   var password = req.body.password
     

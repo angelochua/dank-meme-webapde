@@ -51,6 +51,18 @@ exports.getOtherUsers = function(user){
   })
 }
 
+exports.getDescription = function(user){
+    return new Promise(function(resolve, reject){
+        User.findOne({
+            description: user.description
+        }).then((user)=>{
+            resolve(user)
+        },(err)=>{
+            reject(err)
+        })
+    })
+}
+
 exports.authenticate = function(user){
   return new Promise(function(resolve, reject){
       
