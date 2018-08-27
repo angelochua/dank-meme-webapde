@@ -53,34 +53,39 @@
         <div id="content-container">
          
             {{#each posts}}
-            <div class="post-container">
-                        <div class="icon"></div>
-                        <div class="name"><span><a>{{authorname}}   </a></span></div>
-                     <!--  <a id="share"> shared a post to you </a> -->
-                         <div class="title-des">
-                            <span><h1>{{title}}</h1></span>
+                {{#checkprivacyforuserhome 'public' privacy shareto authorname}} 
+                    <div class="post-container">
+                           
+                                <div class="icon"></div>
+                            {{#if shareto}}
+                                <div class="name"><span><a>{{authorname}} <a id="share"> shared a post to you </a>   </a></span></div>
+                            
+                                
+                            {{else}}
+                                <div class="name"><span><a>{{authorname}} </a></span></div>
+                            {{/if}}
+                        <input type="hidden" id="Id" value="{{_id}}"> 
+                        <input type="hidden" id="Author" value="{{author}}"> 
+                        <input type="hidden" id="Privacy" value="{{privacy}}"> 
+                                 <div class="title-des">
+                                    <span><h1>{{title}}</h1></span>
+                                </div>
+                            <a>
+
+                                <img id="my_image" src="/photo/{{id}}"/>
+                            </a>
+                        
+                         <div class="description">
+                            <span><h4>{{description}}</h4></span>
                         </div>
-                
-                <div class="description">
-                    <span><h4>{{description}}</h4></span>
-                </div>
-                
-                <input type="hidden" id="Id" value="{{_id}}"> 
-                <input type="hidden" id="Author" value="{{author}}"> 
-                <input type="hidden" id="Privacy" value="{{privacy}}"> 
-              
-                    <a>
-                       
-                        <img id="my_image" src="/photo/{{id}}"/>
-                    </a>
-               
-                <div class="tags">
-                    <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
-                </div>
+                        <div class="tags">
+                            <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
+                        </div>
             
-            </div>
-    
-            {{/each}}           
+                    </div>
+                    {{else}}
+                {{/checkprivacyforuserhome}}
+            {{/each}}         
          </div> 
         
         

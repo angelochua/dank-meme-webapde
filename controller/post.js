@@ -98,6 +98,7 @@ router.post("/add", upload.single("filename"),(req, res)=>{
         filename : req.file.filename,
         originalname : req.file.originalname,
         privacy : req.body.privacy, 
+        description: req.body.description,
         author: currentuserID,
         authorname: currentusername,
         tags: parsedTags,
@@ -133,7 +134,7 @@ router.get("/delete", urlencoder, (req, res) => {
 	console.log("/deletepost " + req.query.id)
 	
 	Post.delete(req.query.id).then((result) => {
-		res.redirect("/profile")
+		res.redirect("/home-user")
 	})
 })
 
@@ -171,7 +172,8 @@ router.post("/edit", urlencoder, (req, res) => {
 	let newPost = {
 		title: req.body.title,
 		tags: parsedTags,
-		privacy: req.body.privacy
+		privacy: req.body.privacy,
+        description: req.body.description
 	}
     
     Post.edit(req.body.id, newPost).then(() => {
@@ -196,7 +198,7 @@ hbs.registerHelper('checkprivacy', function(p1, p2, options) { //this hbs functi
     }
 })
 
-hbs.registerHelper('checkprivacyhomeuser', function(p1, p2, shareto, authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
+hbs.registerHelper('checkprivacyforuserhome', function(p1, p2, shareto, authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
     console.log(shareto)
     
     var controllerUser = require("./user")
@@ -222,7 +224,7 @@ hbs.registerHelper('checkifyousharedit', function(authorname, options) { //this 
     }
 })
 
-hbs.registerHelper('filter', function(authorid, options) {  //this hbs function filters the posts by author (in profile view)
+hbs.registerHelper('sort', function(authorid, options) {  //this hbs function filters the posts by author (in profile view)
       
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 

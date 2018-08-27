@@ -16,7 +16,7 @@ router.use("/user", require("./user"))
 var publicDir = require('path').join(__dirname,'/public')
 router.use(express.static(publicDir))
 
-//////////////////////////////////////////////////////////////// START OF ROUTES
+/************ START OF ROUTES ***************/
 router.use("/", urlencoder, (req, res, next) => {
     res.locals.remember = "off"
     
@@ -31,7 +31,7 @@ router.use("/", urlencoder, (req, res, next) => {
 })
 
 router.get("/", function(req, res){
-  console.log("[GET] Lead to home page")
+  console.log("Go to home page [no login]")
   Post.getAll().then((posts)=>{
     res.render("index.hbs", {
       posts
@@ -39,7 +39,7 @@ router.get("/", function(req, res){
   })  
 })
 router.get("/home", function(req, res){
-  console.log("[GET] Lead to home page")
+  console.log("Go to home page [no login]")
   Post.getAll().then((posts)=>{
     res.render("index.hbs", {
       posts
@@ -47,7 +47,7 @@ router.get("/home", function(req, res){
   })  
 })
 router.get("/home-user", function(req, res){
-  console.log("[GET] Lead to user homepage")
+  console.log("go to user home-user")
   var username = req.session.username    
     
   Post.getAll().then((posts)=>{
@@ -61,7 +61,7 @@ router.get("/home-user", function(req, res){
     
 })
 router.post("/profile", (req, res)=>{
-  console.log("[POST] /user/profile")
+  console.log("go to /user/profile")
   var controllerUser = require("./user")
   var currentLoggedIN = controllerUser.getCurrentUser() 
   
@@ -81,8 +81,8 @@ router.post("/profile", (req, res)=>{
   }
 })
 router.get("/logout", function(req, res){
-  console.log("[GET] Lead to home")
-  console.log(req.session.username + 's session succesfully destroyed')
+  console.log("go to Lead to home")
+  console.log(req.session.username + ' session destroyed')
     
   req.session.destroy((err) => {      
       if (err) {

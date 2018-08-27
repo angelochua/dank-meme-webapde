@@ -19,7 +19,7 @@ app.use(express.static(require('path').join(__dirname,'/controller')))
 var currentUserLoggedIn
 
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/DANK",{
+mongoose.connect("mongodb://localhost:27017/dankmeme",{
     useNewUrlParser: true
 })
 

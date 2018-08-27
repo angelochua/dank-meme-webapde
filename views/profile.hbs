@@ -88,7 +88,7 @@
         <div id="content-container">
                 
            {{#each posts}}
-            {{#filter author}}
+            {{#sort author}}
             <form id="deleteform" action="/delete" method="get">
                 <input type="hidden" value="{{_id}}" name="id" id="deleteid">
             </form>
@@ -130,7 +130,7 @@
                     <span><h1>UPLOAD ONE NOW!</h1></span>
                 </div>  
                 </div> -->
-            {{/filter}}
+            {{/sort}}
             
             {{/each}}
          </div> 
