@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="/style-index.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <script src="jquery-3.3.1.js"></script>
+       <script>
+                
+           
+           //////edit
+           $("a.user").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#viewid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#viewuser").submit()
+                })
+           
+           })
+            
+            
+           
+        </script>
+
+        
+        <title>DANK</title>
+        
+        <style>
+            
+        
+        </style>
+    </head>
+    
+    <body>
+         <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form action="/home-user" method="get">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form action="post/search-user" method="post">
+                        <input type="search" id="search-box" placeholder="Search..." name="tags">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                    <form id="form-li" action="/profile" method="post">
+                    <li id="profile-li"><button type="submit" id="profile-button"><strong>Profile</strong></button></li>
+                    </form>    
+                    
+                    <form id="form-li" action="/upload" method="post">
+                    <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
+                    </button></li>
+                    </form>    
+                   
+                    
+                        
+                </ul>
+
+
+            </nav>
+          </div> 
+        <br>
+        <div id ="sep"><p> space </p></div>
+        <br>
+        
+       <div id="content-container">
+            <div class="post-container">
+                
+                <div class="icon"></div>
+                <div class="name"><span><a>{{authorname}}</a></span></div>
+                
+                 <div class="title-des">
+                    <span><h2>{{title}}</h2></span>
+                </div>
+                
+
+                <input type="hidden" id="Id" value="{{_id}}"> 
+                <input type="hidden" id="Author" value="{{author}}"> 
+                <input type="hidden" id="Privacy" value="{{privacy}}"> 
+                
+                
+              
+                    <a>
+                       
+                        <img id="my_image" src="/photo/{{id}}"/>
+                    </a>
+                <div class="description">
+                    <span>{{description}}</span>
+                </div>
+                <div class="tags">
+                    <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
+                </div>
+            
+            </div>
+         </div> 
+        
+        
+    </body>
+
+
+</html>

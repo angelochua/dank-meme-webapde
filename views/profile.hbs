@@ -56,7 +56,7 @@
                     
                     <form id="form-li"
                           action="post/search-user" method="post">
-                        <input type="search" id="search-box" placeholder="Search...">
+                        <input type="search" id="search-box" placeholder="#tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
@@ -103,17 +103,14 @@
                 <div class="name"><span><a>{{authorname}}</a></span></div>
                 
                 <div class="title-des">
-                    <span><h1>{{title}}</h1></span>
+                    <span><h2>{{title}}</h2></span>
                 </div>
-                
-                <div class="description">
-                    <span><h4>{{description}}</h4></span>
-                </div>
-                
                 
                     <img id="my_image" src="/photo/{{id}}"/>
                 
-                
+                 <div class="description">
+                    <span>{{description}}</span>
+                </div>
                 <div class="tags">
                     <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
                 </div>

@@ -21,7 +21,7 @@
                     
                     <form id="form-li"
                           action="post/search-user" method="post">
-                        <input type="search" id="search-box" placeholder="Search...">
+                        <input type="search" id="search-box" placeholder="#tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
                     </form>
                     
@@ -41,18 +41,19 @@
           <div id="upload-container">
             <form action="edit" method="post">
                 <input type ="hidden" value="{{post._id}}" name="id">
+            <strong id="dis"> EDIT POST </strong>      
             <strong id="dis"> TITLE </strong>    
            <div class="up-group"><input type="text" id = "title" value="{{post.title}}" name="title"></div>
             
            
             <br>
             <strong id="dis"> DESCRIPTION </strong>
-            <div class="up-tags"><textarea name="description" id = "description" placeholder="{{post.description}}"></textarea></div>
+            <div class="up-tags"><textarea name="description" id = "description" placeholder="{{post.description}}" value="{{post.description}}"></textarea></div>
                 
             
             <br>
             <strong id="dis"> TAGS </strong>        
-            <div class="tags-cont"><textarea role="combobox" id = "tags" placeholder="{{post.tags}}" name="tags"></textarea></div> 
+            <div class="tags-cont"><textarea role="combobox" id = "tags" value="{{post.tags}}" placeholder="{{post.tags}}" name="tags"></textarea></div> 
             
             
             <br>

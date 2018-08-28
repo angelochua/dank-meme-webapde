@@ -24,9 +24,9 @@ const upload = multer({
   }
 })
 
-//////////////////////////////////////////////////////////////// START OF ROUTES
+/************ START OF ROUTES ***************/
 router.post("/", urlencoder, (req, res)=>{  
-  console.log("[POST] /post/")
+  console.log(" go to /post/")
     
   Post.create(post).then((post)=>{
     Post.getAll().then((posts)=>{
@@ -40,7 +40,7 @@ router.post("/", urlencoder, (req, res)=>{
 })
 
 router.post("/search", (req, res)=>{
-    console.log("/post/search")
+    console.log(" go to /post/search")
     tag = req.body.tags
     console.log(tag)
     
@@ -52,7 +52,7 @@ router.post("/search", (req, res)=>{
 })
 
 router.post("/search-user", (req, res)=>{
-    console.log("/post/search-user")
+    console.log("go to /post/search-user")
     tag = req.body.tags
      console.log(tag)
     Post.getByTag(tag).then((posts)=>{
@@ -76,7 +76,7 @@ router.post("/upload" , function(req,res){
 })
 
 router.post("/add", upload.single("filename"),(req, res)=>{
-  console.log("/post/add")
+  console.log(" go to /post/add")
     
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 
@@ -131,7 +131,7 @@ router.get("/photo/:id", (req, res)=>{
 })
 
 router.get("/delete", urlencoder, (req, res) => {
-	console.log("/deletepost " + req.query.id)
+	console.log("go to /deletepost " + req.query.id)
 	
 	Post.delete(req.query.id).then((result) => {
 		res.redirect("/home-user")
@@ -139,11 +139,8 @@ router.get("/delete", urlencoder, (req, res) => {
 })
 
 router.get("/viewpost", urlencoder, (req, res) => {
-	console.log("/viewpost" + req.query.id)
+	console.log(" go to /viewpost" + req.query.id)
 	
-    
-    
-    
 	Post.get(req.query.id).then((post) => {
 		User.getAll().then((users)=>{
         res.render("edit.hbs", {
@@ -154,8 +151,19 @@ router.get("/viewpost", urlencoder, (req, res) => {
 	})
 })
 
+router.get("/viewmemes", urlencoder, (req, res) => {
+	console.log(" go to /viewmemes " + req.query.id)
+	
+	Post.get(req.query.id).then((post)=>{
+        res.render("meme.hbs",{
+            post
+        })
+    })
+})
+
+
 router.post("/edit", urlencoder, (req, res) => {
-	console.log("/edit" + req.body.id)
+	console.log("go to /edit" + req.body.id)
 	
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 
@@ -173,7 +181,8 @@ router.post("/edit", urlencoder, (req, res) => {
 		title: req.body.title,
 		tags: parsedTags,
 		privacy: req.body.privacy,
-        description: req.body.description
+        description: req.body.description,
+        shareto: req.body.shareto
 	}
     
     Post.edit(req.body.id, newPost).then(() => {
@@ -189,8 +198,11 @@ router.post("/edit", urlencoder, (req, res) => {
 
 module.exports = router
 
-//////////////////////////////////////////////////////////////// HBS FUNCTIONS
-hbs.registerHelper('checkprivacy', function(p1, p2, options) { //this hbs function filters the posts by privacy (in home and user view)
+/************ HBS FUNCTIONS ***************/
+/************ THIS IS FOR SORTING OUT  ***************/
+/************ PRIVATE OR PUBLIC ***************/
+/************ POSTS ***************/
+hbs.registerHelper('checkprivacy', function(p1, p2, options) { /******** THIS IS TO DISPLAY IF THE POST IS PUBLIC IN INDEX.HBS***************/
     if(p1 == p2) {
       return options.fn(this);
     } else {
@@ -198,7 +210,7 @@ hbs.registerHelper('checkprivacy', function(p1, p2, options) { //this hbs functi
     }
 })
 
-hbs.registerHelper('checkprivacyforuserhome', function(p1, p2, shareto, authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
+hbs.registerHelper('checkprivacyforuserhome', function(p1, p2, shareto, authorname, options) { /******** THIS IS TO DISPLAY IF THE POST IS PUBLIC IN HOME-USER.HBS PLUS CHECK IF THE POST IS SHARED TO YOU ***************/
     console.log(shareto)
     
     var controllerUser = require("./user")
@@ -212,19 +224,8 @@ hbs.registerHelper('checkprivacyforuserhome', function(p1, p2, shareto, authorna
     }
 })
 
-hbs.registerHelper('checkifyousharedit', function(authorname, options) { //this hbs function filters the posts by privacy (in home and user view)
-    var controllerUser = require("./user")
-    var currentLoggedIN = controllerUser.getCurrentUser() 
-    var currentusername = currentLoggedIN.username
-    
-    if(currentusername == authorname) {
-      return options.fn(this);
-    } else {
-      return options.inverse(this);
-    }
-})
 
-hbs.registerHelper('sort', function(authorid, options) {  //this hbs function filters the posts by author (in profile view)
+hbs.registerHelper('sort', function(authorid, options) {  /******** THIS IS TO DISPLAY ALL YOUR POST IN PROFILE.HBS***************/
       
     var controllerUser = require("./user")
     var currentLoggedIN = controllerUser.getCurrentUser() 

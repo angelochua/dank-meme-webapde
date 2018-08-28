@@ -108,7 +108,7 @@ body {
 
 .name a {
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 600;
     color: black;
 }
 
@@ -173,6 +173,13 @@ body {
     margin-bottom: 20px;
     cursor: pointer;
     
+}
+
+#pic-cont{
+    border: none;
+    box-shadow: none;
+    background: white;
+    padding-left: 45px;
 }
 
 #signup-button a{
@@ -381,11 +388,14 @@ li{
 
 .description{
     padding-left: 50px;
+    font-size: 20px;
+    font-weight: 250;
+    
 }
 
 .tags{
     padding-left: 50px;
-    font-size: 13px;
+    font-size: 16px;
     color: black;
 }
 

@@ -8,6 +8,51 @@
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
+        <script src="jquery-3.3.1.js"></script>
+       <script>
+                
+           $(document).ready(function(){
+                //detect if user clicks on button.delete
+                $("button.delete").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#deleteid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#deleteform").submit()
+                })
+            
+           
+            //////edit
+           $("button.Vmeme").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#viewid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#viewmemes").submit()
+                })
+           
+           })
+           
+           
+          
+           
+           
+            
+            function getId(){
+                  var id = document.getElementbyID("Id").value;
+                                
+                                alert(id);
+                            }
+           
+            </script>
+
+        
         <title>DANK</title>
         
         <style>
@@ -53,30 +98,37 @@
         <div id="content-container">
          
             {{#each posts}}
+                    <form action="/viewmemes" method="GET">
+                        <input type="hidden" id="Id" value="{{_id}}" name="id" class="pId">
+                    </form>
+            
+                        <input type="hidden" id="Author" value="{{author}}" name="author"> 
+            
+                        <input type="hidden" id="Privacy" value="{{privacy}}">
+                   
                 {{#checkprivacyforuserhome 'public' privacy shareto authorname}} 
                     <div class="post-container">
                            
-                                <div class="icon"></div>
+                                <div class="icon" ></div>
                             {{#if shareto}}
-                                <div class="name"><span><a>{{authorname}} <a id="share"> shared a post to you </a>   </a></span></div>
+                                <div class="name"><span><a href="/userprofile">{{authorname}} <a id="share"> shared a post to you </a>   </a></span></div>
                             
                                 
                             {{else}}
                                 <div class="name"><span><a>{{authorname}} </a></span></div>
                             {{/if}}
-                        <input type="hidden" id="Id" value="{{_id}}"> 
-                        <input type="hidden" id="Author" value="{{author}}"> 
-                        <input type="hidden" id="Privacy" value="{{privacy}}"> 
+                        
                                  <div class="title-des">
-                                    <span><h1>{{title}}</h1></span>
+                                    <span><h2>{{title}}</h2></span>
                                 </div>
-                            <a>
+                        
+                            <button id="pic-cont" class="Vmeme" data-id="{{_id}}">
 
                                 <img id="my_image" src="/photo/{{id}}"/>
-                            </a>
+                            </button>
                         
                          <div class="description">
-                            <span><h4>{{description}}</h4></span>
+                            <span>{{description}}</span>
                         </div>
                         <div class="tags">
                             <span class="tag-cont">{{tags}}</span> <span class="space"> </span>

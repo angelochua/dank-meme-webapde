@@ -18,7 +18,7 @@
                     
                     <form id="form-li" action="/search" method="post">
                         
-                       <input type="text" id="search-box" placeholder="Search..." name="tags">
+                       <input type="text" id="search-box" placeholder="#tags" name="tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>   
                     </form>
                     
@@ -54,12 +54,10 @@
                 <div class="name"><span><a>{{authorname}}</a></span></div>
                 
                  <div class="title-des">
-                    <span><h1>{{title}}</h1></span>
+                    <span><h2>{{title}}</h2></span>
                 </div>
                 
-                <div class="description">
-                    <span><h4>{{description}}</h4></span>
-                </div>
+                
                 
                 <input type="hidden" id="Id" value="{{_id}}"> 
                 <input type="hidden" id="Author" value="{{author}}"> 
@@ -72,6 +70,9 @@
                         <img id="my_image" src="/photo/{{id}}"/>
                     </a>
                
+                <div class="description">
+                    <span>{{description}}</span>
+                </div>
                 <div class="tags">
                     <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
                 </div>

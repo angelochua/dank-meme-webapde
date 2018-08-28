@@ -18,14 +18,17 @@ app.use(express.static(require('path').join(__dirname,'/public')))
 app.use(express.static(require('path').join(__dirname,'/controller')))
 var currentUserLoggedIn
 
+//DB CONFIG
+const db = require('./public/database');
+
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/dankmeme",{
+mongoose.connect( db.mongoURI ,{
     useNewUrlParser: true
 })
 
 app.use(session({
   secret : "secret",
-  name : "secretname",
+  name : "superdupersecretname",
   resave: true,
   saveUninitialized :true,
     
@@ -38,6 +41,9 @@ app.use(require("./controller/index"))
 app.use(require("./controller/post"))
 app.use(require("./controller/user"))
 
-app.listen(process.env.PORT ||3000, () => {  
-    console.log("[LISTEN] Running in port 3000")
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {  
+    console.log("LISTENING nd Running in port 3000")
 })

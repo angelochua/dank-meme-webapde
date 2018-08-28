@@ -10,7 +10,8 @@ const urlencoder = bodyparser.urlencoded({
 })
 router.use(urlencoder)
 var currentLoggedIn
-//////////////////////////////////////////////////////////////// START OF ROUTES
+
+/************ START OF ROUTES ***************/
 router.post("/register", (req, res)=>{
   console.log("[POST] /user/register")
   var user = {

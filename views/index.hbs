@@ -31,7 +31,7 @@
                     </form>  
                     
                     <form action="post/search" method="post">
-                       <input type="text" id="search-box" placeholder="Search..." name="tags">
+                       <input type="text" id="search-box" placeholder="#tags" name="tags">
                         <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>   
                     </form>
                     
@@ -61,7 +61,7 @@
                 <div class="name"><span><a>{{authorname}}</a></span></div>
                 
                  <div class="title-des">
-                    <span><h1>{{title}}</h1></span>
+                    <span><h2>{{title}}</h2></span>
                 </div>
                 
 
@@ -76,7 +76,7 @@
                         <img id="my_image" src="/photo/{{id}}"/>
                     </a>
                 <div class="description">
-                    <span><h4>{{description}}</h4></span>
+                    <span>{{description}}</span>
                 </div>
                 <div class="tags">
                     <span class="tag-cont">{{tags}}</span> <span class="space"> </span>

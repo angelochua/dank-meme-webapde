@@ -1,0 +1,134 @@
+<html>
+    <head>
+         
+        <link rel="stylesheet" type="text/css" href="/style-user.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <script src="jquery-3.3.1.js"></script>
+       <script>
+            
+            $(document).ready(function(){
+                //detect if user clicks on button.delete
+                $("button.delete").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#deleteid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#deleteform").submit()
+                })
+            
+           
+           //////edit
+           $("button.view").click(function(){
+                    //get attr data-id from clicked button
+                    var id = $(this).attr("data-id")
+                    
+                    //place data-id into input#deleteid
+                    $("input#viewid").val(id)
+                    
+                    //submit the form #delete
+                    $("form#viewform").submit()
+                })
+           
+           })
+            
+            
+           
+        </script>
+        
+        <title>DANK</title>
+    </head>
+    
+    <body>
+        
+          <div id="container-nav">
+              
+            <nav id="navbar">
+                <ul>
+                    <form id="form-li"
+                          action="/home-user" method="get">
+                        <button type="submit" id="home-button"><a><strong>DANK</strong></a></button>
+                    </form>    
+                    
+                    <form id="form-li"
+                          action="post/search-user" method="post">
+                        <input type="search" id="search-box" placeholder="#tags">
+                        <button type="submit" id = "searchSubmit"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                    <form id="form-li" action="/upload" method="post">
+                    <li id="upload-li"><button type="submit" id="upload-button"><strong><i class="fa fa-upload"></i> Upload</strong>
+                    </button></li>
+                    </form>    
+                   
+                    <form id="form-li" action="/logout" method="get">
+                    <li><button type="submit" id="profile-button"><strong><i class="fa fa-logout"></i> Logout</strong></button></li>
+                    </form>
+                </ul>
+
+
+            </nav>
+          </div>
+        
+        <br><br><br>
+        <div class="user-profile-container">
+            <span>Welcome, {{user.username}}</span>
+            <br><br>
+            <p>{{user.description}}</p>
+            
+        </div>
+        
+        
+        
+        
+        <div id="content-container">
+                
+           {{#each posts}}
+            {{#sort author}}
+            <form id="deleteform" action="/delete" method="get">
+                <input type="hidden" value="{{_id}}" name="id" id="deleteid">
+            </form>
+            
+            <form id="viewform" action="post/viewpost" method="GET">
+                <input type="hidden" value="{{_id}}" name="id" id="viewid">
+            </form>
+            
+            <div class="post-container">
+                
+                <div class="icon"></div>
+                <div class="name"><span><a>{{authorname}}</a></span></div>
+                
+                <div class="title-des">
+                    <span><h2>{{title}}</h2></span>
+                </div>
+                
+                    <img id="my_image" src="/photo/{{id}}"/>
+                
+                 <div class="description">
+                    <span>{{description}}</span>
+                </div>
+                <div class="tags">
+                    <span class="tag-cont">{{tags}}</span> <span class="space"> </span>
+                </div>
+                
+            </div>
+            
+            {{else}}
+                
+            <!---    <div class="post-container">
+                <div class="title-des">
+                    <span><h1>UPLOAD ONE NOW!</h1></span>
+                </div>  
+                </div> -->
+            {{/sort}}
+            
+            {{/each}}
+         </div> 
+        
+    </body>
+
+</html>
